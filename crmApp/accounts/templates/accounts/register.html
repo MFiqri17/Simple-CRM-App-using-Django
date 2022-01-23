@@ -1,0 +1,36 @@
+{% extends 'accounts/main.html' %}
+
+{% block css %}
+
+<style>
+
+    .errorlist {
+        color:red
+    }
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class='container'>
+        {% for field in form  %}
+        <div class="form-group" >
+            {{field.label}}
+            {{field}}
+            {{field.errors}} 
+        </div>
+        {% endfor %}
+        <button class="btn btn-sm ">
+            <a href={%url 'accounts-UserLogin' %}>Already have an account? Please Login</a>
+        </button>
+        <input type="submit" >
+        </div>
+        
+    </form>
+
+{% endblock %}

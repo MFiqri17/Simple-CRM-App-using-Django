@@ -1,0 +1,24 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+
+
+<form action="" method="POST" id="SubmitForm">
+    <h1>This is a {{customer.name}} form </h1>
+    {% csrf_token %}
+    {{form.management_form}}
+    {%for field in form%}
+    {{field}}
+    <hr>
+    {%endfor%}
+        
+        
+    <input onclick="if (confirm('Are you sure wanna change this?')){return true;}else{event.stopPropagation(); event.preventDefault();};" type="submit" id="Submit">
+    
+</form>
+
+
+
+{% endblock %}
+
